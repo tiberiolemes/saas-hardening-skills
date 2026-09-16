@@ -7,6 +7,10 @@ description: Review SaaS production configuration, observability, release safety
 
 Assess whether the application can be operated safely in its actual deployment context. Do not claim readiness when provider or production evidence is unavailable.
 
+## Correction mode
+
+Do not stop at the report. After classifying findings, implement safe, proportionate, well-understood operational fixes within the user's authorization, then run applicable checks and recovery or resilience tests. Never mutate production or destroy data for evidence; mark a finding `RESOLVED` only with verification evidence and document unsafe or unauthorized changes as `ACCEPTED`, `BLOCKED`, or `NOT_VERIFIED`.
+
 ## Workflow
 
 1. Inventory environments, configuration, secrets, build and deploy paths, permissions, dependencies, source maps, debug behavior, and security headers.

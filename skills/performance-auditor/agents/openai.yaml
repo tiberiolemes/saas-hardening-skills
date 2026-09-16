@@ -2,7 +2,7 @@ interface:
   display_name: "Performance Auditor"
   short_description: "Measure and improve SaaS performance"
   brand_color: "#1570EF"
-  default_prompt: "Use $performance-auditor to measure and improve this SaaS performance."
+  default_prompt: "Use $performance-auditor to measure, safely improve, test, and verify this SaaS performance."
 
 policy:
   allow_implicit_invocation: true

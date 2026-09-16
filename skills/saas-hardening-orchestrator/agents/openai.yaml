@@ -2,7 +2,7 @@ interface:
   display_name: "SaaS Hardening Orchestrator"
   short_description: "Run a staged SaaS hardening program"
   brand_color: "#B42318"
-  default_prompt: "Use $saas-hardening-orchestrator to run the staged 00–07 hardening program."
+  default_prompt: "Use $saas-hardening-orchestrator to audit, safely fix, test, and verify this SaaS through stages 00–07."
 
 policy:
   allow_implicit_invocation: true

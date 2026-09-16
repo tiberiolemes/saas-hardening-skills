@@ -2,7 +2,7 @@ interface:
   display_name: "Production Readiness Auditor"
   short_description: "Assess safe production operation"
   brand_color: "#175CD3"
-  default_prompt: "Use $production-readiness-auditor to assess production readiness."
+  default_prompt: "Use $production-readiness-auditor to audit, safely fix, test, and verify production readiness."
 
 policy:
   allow_implicit_invocation: true

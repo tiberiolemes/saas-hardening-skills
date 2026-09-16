@@ -7,6 +7,10 @@ description: Measure and improve SaaS backend and frontend performance with evid
 
 Measure before optimizing. Separate observed bottlenecks from hypotheses and do not invent before/after gains.
 
+## Correction mode
+
+Do not stop at the report. After classifying findings, implement the smallest safe, measured optimization within the user's authorization, then rerun comparable measurements and correctness, isolation, and regression checks. Mark a finding `RESOLVED` only when the verification evidence is recorded; document unmeasurable, risky, or unauthorized changes as `ACCEPTED`, `BLOCKED`, or `NOT_VERIFIED`.
+
 ## Workflow
 
 1. Establish the workload, environment, user journey, data shape, and baseline metrics.

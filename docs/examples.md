@@ -3,13 +3,13 @@
 ## Full run
 
 ~~~text
-Use $saas-hardening-orchestrator to run the complete 00–07 program on this SaaS repository. Start with a read-only baseline, preserve existing changes, classify findings P0–P3, update docs/audit/AUDIT-STATUS.md at every stage, stop on a blocked gate, run relevant positive and negative-path tests, and never expose secrets.
+Use $saas-hardening-orchestrator to run the complete 00–07 program on this SaaS repository. Start with a read-only baseline, then classify findings P0–P3, implement safe authorized corrections in stages 01–07, update docs/audit/AUDIT-STATUS.md at every stage, verify each correction with relevant positive and negative-path tests, stop on a blocked gate, preserve existing changes, and never expose secrets.
 ~~~
 
 ## Scoped tenant review
 
 ~~~text
-Use $tenant-isolation-auditor to review the invoice, export, and support-admin flows. Build the resource ownership matrix first. Trace server-side authorization and database/storage scoping, then add or run cross-tenant negative tests. Report evidence before proposing changes.
+Use $tenant-isolation-auditor to review the invoice, export, and support-admin flows. Build the resource ownership matrix first. Trace server-side authorization and database/storage scoping, classify findings, implement safe authorized corrections, and verify them with cross-tenant negative tests. Document anything unsafe or ambiguous as BLOCKED or NOT_VERIFIED.
 ~~~
 
 ## Baseline only

@@ -7,6 +7,10 @@ description: Review SaaS database schema, constraints, migrations, queries, tran
 
 Review the database as a correctness, security, and operational boundary. Preserve data and avoid destructive migrations during an audit.
 
+## Correction mode
+
+Do not stop at the report. After classifying findings, implement safe, proportionate, well-understood integrity fixes within the user's authorization, then run integrity, regression, and concurrency checks. Mark a finding `RESOLVED` only when the verification evidence is recorded; document unsafe, ambiguous, destructive, or unauthorized changes as `ACCEPTED`, `BLOCKED`, or `NOT_VERIFIED`.
+
 ## Workflow
 
 1. Inventory schema, migrations, foreign keys, unique/check constraints, nullability, tenant keys, timestamps, soft deletes, and ownership relationships.

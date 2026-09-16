@@ -2,7 +2,7 @@ interface:
   display_name: "SaaS Baseline"
   short_description: "Map a SaaS before hardening"
   brand_color: "#475467"
-  default_prompt: "Use $saas-baseline to map this SaaS before making hardening changes."
+  default_prompt: "Use $saas-baseline to map this SaaS read-only before making hardening changes."
 
 policy:
   allow_implicit_invocation: true

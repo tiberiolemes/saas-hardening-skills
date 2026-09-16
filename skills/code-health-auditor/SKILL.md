@@ -7,6 +7,10 @@ description: Improve an existing SaaS codebase by proving dead code, reducing un
 
 Make the codebase easier to understand and change without turning style preferences into findings. Remove code only when references and runtime behavior have been checked.
 
+## Correction mode
+
+Do not stop at the report. After classifying findings, implement small, safe, behavior-preserving improvements within the user's authorization, then run focused and broader regression checks. Mark a finding `RESOLVED` only when the verification evidence is recorded; document speculative, ambiguous, or unauthorized changes as `ACCEPTED`, `BLOCKED`, or `NOT_VERIFIED`.
+
 ## Workflow
 
 1. Inventory modules, exports, routes, feature flags, dependencies, generated code, configuration, and test coverage.

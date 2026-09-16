@@ -2,7 +2,7 @@ interface:
   display_name: "Database Integrity Auditor"
   short_description: "Review schema and data safety"
   brand_color: "#027A48"
-  default_prompt: "Use $database-integrity-auditor to review schema, migrations, and data safety."
+  default_prompt: "Use $database-integrity-auditor to audit, safely fix, test, and verify schema, migrations, and data safety."
 
 policy:
   allow_implicit_invocation: true

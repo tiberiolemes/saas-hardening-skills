@@ -70,7 +70,7 @@ From the root of the SaaS application:
 
 ```text
 Use $saas-hardening-orchestrator to run the complete 00–07 hardening program on this repository.
-Preserve existing changes, do not expose secrets, and stop at any blocked quality gate.
+After the read-only baseline, implement safe and authorized corrections; test and verify each change, preserve existing work, do not expose secrets, and stop at any blocked quality gate.
 ```
 
 The orchestrator creates or updates:
@@ -90,7 +90,7 @@ docs/audit/AUDIT-STATUS.md
 For a focused review, invoke an auditor directly:
 
 ```text
-Use $tenant-isolation-auditor to review authorization and cross-tenant access for the billing and export flows. Produce evidence and negative-path tests; do not change code until findings are classified.
+Use $tenant-isolation-auditor to review authorization and cross-tenant access for the billing and export flows. Classify findings, implement safe authorized corrections, and verify them with evidence and negative-path tests.
 ```
 
 To resume an interrupted program:
@@ -118,6 +118,8 @@ Every stage follows the same evidence loop:
 ```text
 CHECKPOINT → AUDIT → PLAN → FIX → TEST → ADVERSARIAL TEST → VERIFY → REPORT → GATE → COMMIT
 ```
+
+The program is audit-and-remediation, not report-only. Stage 00 is read-only discovery. In stages 01–07, implement safe, proportionate, well-understood corrections within the user's authorization; do not mark findings resolved without verification evidence. Findings that cannot be safely or clearly changed remain `ACCEPTED`, `BLOCKED`, or `NOT_VERIFIED` with the reason and next action documented.
 
 The next stage cannot begin when the current stage is `BLOCKED`. Findings use `P0`–`P3` severity, and every claim is marked with evidence, confidence, or `NOT_VERIFIED` when the repository does not prove it.
 
@@ -165,13 +167,13 @@ More complete prompts and report examples are in [docs/examples.md](docs/example
 ### Full program
 
 ```text
-Run the complete SaaS hardening program with $saas-hardening-orchestrator. First establish a read-only baseline. Then process stages 01–07 in order. At each stage, maintain the audit report and AUDIT-STATUS.md, classify findings P0–P3, run applicable tests and negative paths, stop on a failed gate, and preserve all existing work.
+Run the complete SaaS hardening program with $saas-hardening-orchestrator. First establish a read-only baseline. Then process stages 01–07 in order. At each stage, maintain the audit report and AUDIT-STATUS.md, classify findings P0–P3, implement safe authorized corrections, run applicable tests and negative paths, stop on a failed gate, and preserve all existing work.
 ```
 
 ### Security-only review
 
 ```text
-Use $appsec-auditor for an evidence-based review of authentication, authorization, input handling, web threats, secrets, and dependency risk. Scope the review to the current application and report findings before proposing fixes.
+Use $appsec-auditor for an evidence-based review of authentication, authorization, input handling, web threats, secrets, and dependency risk. Scope the review to the current application, implement safe authorized corrections after classification, and verify them with focused regression and adversarial tests.
 ```
 
 ### Gate review

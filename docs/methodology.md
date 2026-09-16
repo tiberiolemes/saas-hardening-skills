@@ -32,6 +32,12 @@ Every stage uses the following loop:
 9. **GATE** — apply the shared and stage-specific criteria. Use NOT_VERIFIED when evidence is absent.
 10. **COMMIT** — create a logical stage commit only when permitted by the task and repository policy; never include unrelated user work.
 
+## Audit-and-remediation behavior
+
+This is not a report-only workflow. Stage 00 is read-only discovery and baseline construction. After Stage 00, every specialist must classify findings and then implement safe, proportionate, well-understood corrections that are within the user's authorization. Corrections are made in small groups and verified with focused tests, broader regression checks, and relevant adversarial or negative-path tests.
+
+Only mark a finding `RESOLVED` when the verification evidence is recorded. If a correction is unsafe, ambiguous, destructive, unmeasurable, or unauthorized, do not guess or force it: record `ACCEPTED`, `BLOCKED`, or `NOT_VERIFIED`, including the reason and the condition required to continue.
+
 ## Findings
 
 - P0: active path to severe unauthorized access, credential exposure, destructive data loss, or a comparable critical impact.

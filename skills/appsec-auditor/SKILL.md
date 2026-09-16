@@ -7,6 +7,10 @@ description: Audit web application security across authentication, authorization
 
 Review the application's reachable security boundaries and produce an evidence-based Stage 01 report. Understand the architecture before proposing fixes and keep the review stack-agnostic.
 
+## Correction mode
+
+Do not stop at the report. After classifying findings, implement safe, proportionate, well-understood fixes within the user's authorization, then run focused regression and adversarial tests. Mark a finding `RESOLVED` only when the verification evidence is recorded; document unsafe, ambiguous, or unauthorized changes as `ACCEPTED`, `BLOCKED`, or `NOT_VERIFIED`.
+
 ## Workflow
 
 1. Identify trust boundaries, assets, actors, authentication/session lifecycle, authorization decisions, and sensitive data.

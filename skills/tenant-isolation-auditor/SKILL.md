@@ -7,6 +7,10 @@ description: Verify SaaS tenant and resource isolation, server-side authorizatio
 
 Treat tenant isolation as an end-to-end property. A tenant identifier, UUID, hidden UI control, or frontend check is not authorization.
 
+## Correction mode
+
+Do not stop at the report. After classifying findings, implement safe, proportionate, well-understood authorization and isolation fixes within the user's authorization, then rerun authorized and adversarial paths. Mark a finding `RESOLVED` only when the verification evidence is recorded; document unsafe, ambiguous, or unauthorized changes as `ACCEPTED`, `BLOCKED`, or `NOT_VERIFIED`.
+
 ## Workflow
 
 1. Map tenants, users, memberships, roles, resources, ownership edges, privileged actors, and background workers.

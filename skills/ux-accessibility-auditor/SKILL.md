@@ -7,6 +7,10 @@ description: Review SaaS user journeys, feedback states, responsive behavior, ke
 
 Review the flows that matter to users and operators. Preserve the product’s identity while fixing confusing, inaccessible, or failure-prone interactions.
 
+## Correction mode
+
+Do not stop at the report. After classifying findings, implement focused, safe UX and accessibility fixes within the user's authorization, then rerun functional, visual, responsive, and accessibility checks. Mark a finding `RESOLVED` only when the verification evidence is recorded; document ambiguous or unauthorized product changes as `ACCEPTED`, `BLOCKED`, or `NOT_VERIFIED`.
+
 ## Workflow
 
 1. Identify critical journeys and their loading, empty, success, error, retry, disabled, destructive, and permission-denied states.
