@@ -69,6 +69,29 @@ claude --plugin-dir /caminho/para/saas-hardening-skills
 
 Invoque o programa completo com `/saas-hardening-skills:saas-hardening-orchestrator`. Os subagentes ficam disponíveis pela interface `@` do Claude Code. Consulte [docs/claude-code.md](docs/claude-code.md) para detalhes.
 
+### Como usar
+
+No diretório raiz da aplicação SaaS que você quer revisar, envie este prompt ao Codex ou ao Claude Code:
+
+```text
+Use a skill `saas-hardening-orchestrator` e inicie o programa completo de hardening desta aplicação.
+Comece pelo Stage 00 e siga rigorosamente a metodologia, os quality gates e a disciplina de Git definidos na skill.
+Utilize as skills especializadas correspondentes em cada etapa.
+Mantenha `docs/audit/AUDIT-STATUS.md` como fonte de verdade do processo.
+Trabalhe com autonomia nas operações seguras e reversíveis. Pare apenas diante de blockers reais, operações destrutivas ou decisões que exijam minha intervenção.
+Não pule etapas e não considere uma etapa concluída sem evidência de que seu gate foi atendido.
+```
+
+Se você já executou o Stage 00, use este prompt para continuar com segurança:
+
+```text
+Use a skill `saas-hardening-orchestrator` para retomar o programa a partir de `docs/audit/AUDIT-STATUS.md`.
+Revise o status atual, a branch, o working tree, o último checkpoint, os blockers e o último quality gate concluído antes de continuar.
+Não repita trabalho já comprovado, não pule etapas e não marque um gate como aprovado sem evidência.
+```
+
+O prompt autoriza correções seguras e reversíveis dentro do escopo do programa, mas mantém a parada diante de operações destrutivas, blockers reais ou decisões que precisam da sua intervenção.
+
 ### Uso e metodologia
 
 Depois do baseline somente leitura, os stages 01–07 devem classificar findings, implementar correções seguras e autorizadas, testar cada mudança, executar caminhos adversariais quando aplicável e registrar evidências antes de marcar um finding como `RESOLVED`.
@@ -183,12 +206,26 @@ Invoke the complete program with `/saas-hardening-skills:saas-hardening-orchestr
 
 ## Usage
 
-From the root of the SaaS application:
+From the root of the SaaS application you want to review, send this prompt to Codex or Claude Code:
 
 ```text
-Use $saas-hardening-orchestrator to run the complete 00–07 hardening program on this repository.
-After the read-only baseline, implement safe and authorized corrections; test and verify each change, preserve existing work, do not expose secrets, and stop at any blocked quality gate.
+Use the `saas-hardening-orchestrator` Skill and start the complete hardening program for this application.
+Begin with Stage 00 and rigorously follow the methodology, quality gates, and Git discipline defined by the Skill.
+Use the corresponding specialist Skills at each stage.
+Keep `docs/audit/AUDIT-STATUS.md` as the source of truth for the process.
+Work autonomously on safe and reversible operations. Stop only for real blockers, destructive operations, or decisions that require my intervention.
+Do not skip stages and do not consider a stage complete without evidence that its gate has been satisfied.
 ```
+
+If Stage 00 has already run, use this safe-resumption prompt:
+
+```text
+Use the `saas-hardening-orchestrator` Skill to resume the program from `docs/audit/AUDIT-STATUS.md`.
+Review the current status, branch, working tree, last checkpoint, blockers, and last completed quality gate before continuing.
+Do not repeat work that is already evidenced, do not skip stages, and do not mark a gate as passed without evidence.
+```
+
+The prompt authorizes safe, reversible corrections within the program's scope while preserving the stop conditions for destructive operations, real blockers, and decisions that require your intervention.
 
 The orchestrator creates or updates:
 
