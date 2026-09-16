@@ -1,0 +1,8 @@
+interface:
+  display_name: "UX and Accessibility Auditor"
+  short_description: "Improve SaaS UX and accessibility"
+  brand_color: "#C11574"
+  default_prompt: "Use $ux-accessibility-auditor to review UX and accessibility."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Code Health Auditor"
+  short_description: "Simplify code with evidence"
+  brand_color: "#344054"
+  default_prompt: "Use $code-health-auditor to review dead code and maintainability."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "AppSec Auditor"
+  short_description: "Audit application security boundaries"
+  brand_color: "#B42318"
+  default_prompt: "Use $appsec-auditor to audit this application's security boundaries."
+
+policy:
+  allow_implicit_invocation: true

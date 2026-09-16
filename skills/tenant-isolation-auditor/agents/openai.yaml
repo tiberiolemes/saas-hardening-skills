@@ -1,0 +1,8 @@
+interface:
+  display_name: "Tenant Isolation Auditor"
+  short_description: "Verify cross-tenant data boundaries"
+  brand_color: "#7F56D9"
+  default_prompt: "Use $tenant-isolation-auditor to test tenant and resource isolation."
+
+policy:
+  allow_implicit_invocation: true
