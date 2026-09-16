@@ -1,5 +1,77 @@
 # Contributing
 
+[🇧🇷 PT-BR](#pt-br) · [🇺🇸 English](#english)
+
+## PT-BR
+
+Obrigado por ajudar a melhorar o SaaS Hardening Skills. As contribuições devem tornar o framework mais baseado em evidências, mais seguro para executar, mais fácil de retomar e mais útil em diferentes stacks tecnológicas.
+
+### Antes de começar
+
+- Leia o README e o `SKILL.md` relevante.
+- Abra uma issue para mudanças significativas na metodologia, ordem das etapas, severidade ou comportamento público.
+- Nunca inclua credenciais, dados pessoais, código privado de aplicações ou secrets reais de exploração em issues, pull requests, fixtures ou exemplos.
+
+### Regras de design das Skills
+
+Cada Skill deve:
+
+- viver em `skills/<skill-name>/`;
+- conter um `SKILL.md` com frontmatter YAML contendo exatamente o nome em minúsculas separado por hífens e uma descrição que diferencie a Skill;
+- manter o entrypoint focado em propósito, roteamento, restrições essenciais e saída;
+- colocar procedimentos condicionais, checklists, schemas e exemplos em arquivos focados dentro de `references/`;
+- linkar cada referência a partir do entrypoint e explicar quando ela deve ser lida;
+- preservar a invocação automática, salvo quando houver motivo documentado para tornar a Skill explícita;
+- não prometer segurança, performance, conformidade ou prontidão para produção sem evidências.
+
+Use `agents/openai.yaml` somente para metadados úteis de interface ou uma política real de invocação. Mantenha todos os valores string entre aspas e o prompt padrão curto e explícito sobre `$skill-name`. Para o Claude Code, use o manifesto `.claude-plugin/plugin.json` e subagentes Markdown em `agents/`.
+
+### Validação local
+
+A partir da raiz do repositório, execute:
+
+```bash
+python3 scripts/validate_skills.py
+```
+
+Se a instalação do Codex incluir o validador do Skill Creator, execute também `quick_validate.py` em cada diretório dentro de `skills/`. Revise links, exemplos, linguagem e escopo manualmente; a validação de sintaxe não prova que o workflow toma boas decisões.
+
+Para validar o plugin Claude Code, execute:
+
+```bash
+claude plugin validate .
+```
+
+### Documentação e exemplos
+
+Use linguagem portável entre stacks. Prefira “inspecione o limite de autorização do framework” a um comando específico de provedor, salvo quando o provedor for o assunto da referência. Exemplos devem usar placeholders como `example.test`, nunca credenciais reais ou identificadores privados.
+
+### Git e pull requests
+
+Use commits pequenos e lógicos. Prefixos sugeridos:
+
+- `feat:` para uma nova Skill ou capacidade do workflow;
+- `fix:` para uma correção de comportamento ou instrução;
+- `docs:` para mudanças somente de documentação;
+- `test:` para mudanças em validadores ou testes;
+- `chore:` para manutenção.
+
+Antes de abrir um pull request:
+
+- inspecione `git diff` e `git status`;
+- confirme que somente os caminhos pretendidos estão incluídos;
+- faça uma varredura por secrets e dados privados;
+- execute os validadores;
+- explique mudanças de comportamento, notas de migração e suposições não verificadas.
+
+Não reescreva histórico compartilhado nem faça force push. Não use comandos Git destrutivos nas instruções de contribuição.
+
+### Relatórios de segurança
+
+Não abra uma issue pública para uma vulnerabilidade no framework que possa colocar usuários em risco. Entre em contato privadamente com o responsável pelo repositório, fornecendo evidências de reprodução, arquivos afetados, impacto e uma proposta de cronograma de divulgação. Redija tokens, chaves, dados pessoais e detalhes sensíveis da aplicação.
+
+## English
+
 Thank you for helping improve SaaS Hardening Skills. Contributions should make the framework more evidence-driven, safer to run, easier to resume, and more useful across technology stacks.
 
 ## Before you start

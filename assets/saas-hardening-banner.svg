@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="420" viewBox="0 0 1600 420" role="img" aria-labelledby="title description">
+  <title id="title">SaaS Hardening Skills</title>
+  <desc id="description">Evidence-based audit, remediation, testing, and verification for SaaS applications.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.55" stop-color="#172554"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="0.5" stop-color="#fb7185"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="420" rx="24" fill="url(#background)"/>
+  <circle cx="1320" cy="80" r="180" fill="#6366f1" opacity="0.18" filter="url(#glow)"/>
+  <circle cx="1480" cy="350" r="220" fill="#f59e0b" opacity="0.12" filter="url(#glow)"/>
+  <path d="M0 338 C280 270 430 420 700 342 S1160 226 1600 302" fill="none" stroke="url(#accent)" stroke-width="3" opacity="0.75"/>
+  <path d="M0 356 C280 288 430 438 700 360 S1160 244 1600 320" fill="none" stroke="#f8fafc" stroke-width="1" opacity="0.18"/>
+  <g transform="translate(92 82)">
+    <path d="M88 0 164 28v72c0 62-40 105-76 124-36-19-76-62-76-124V28L88 0Z" fill="none" stroke="#f8fafc" stroke-width="8"/>
+    <path d="m48 98 27 27 55-62" fill="none" stroke="#fbbf24" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="88" cy="222" r="7" fill="#fb7185"/>
+  </g>
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fill="#f8fafc">
+    <text x="310" y="146" font-size="76" font-weight="800" letter-spacing="8">SAAS</text>
+    <text x="310" y="226" font-size="76" font-weight="800" letter-spacing="8" fill="url(#accent)">HARDENING</text>
+    <text x="314" y="278" font-size="26" font-weight="600" letter-spacing="6" fill="#cbd5e1">SKILLS · CODEX · CLAUDE CODE</text>
+    <text x="314" y="338" font-size="20" font-weight="500" letter-spacing="3" fill="#e2e8f0">AUDIT  →  FIX  →  TEST  →  VERIFY</text>
+  </g>
+  <g transform="translate(1232 130)" font-family="Inter, ui-sans-serif, system-ui, sans-serif" text-anchor="middle">
+    <rect width="250" height="58" rx="29" fill="#f8fafc" opacity="0.12" stroke="#f8fafc" stroke-opacity="0.3"/>
+    <text x="125" y="37" font-size="22" font-weight="700" fill="#f8fafc" letter-spacing="3">STAGES 00–07</text>
+    <rect y="82" width="250" height="58" rx="29" fill="#fbbf24"/>
+    <text x="125" y="119" font-size="22" font-weight="800" fill="#111827" letter-spacing="3">EVIDENCE FIRST</text>
+  </g>
+</svg>

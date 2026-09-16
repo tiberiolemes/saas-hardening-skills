@@ -1,5 +1,110 @@
 # SaaS Hardening Skills
 
+<p align="center">
+  <img src="assets/saas-hardening-banner.svg" alt="SaaS Hardening Skills — evidence-based audit, fix, test, and verify for Codex and Claude Code" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://github.com/tiberiolemes/saas-hardening-skills"><img src="https://img.shields.io/badge/version-1.1.0-4f46e5?style=for-the-badge" alt="Version 1.1.0"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-16a34a?style=for-the-badge" alt="MIT License"></a>
+  <img src="https://img.shields.io/badge/stages-00%E2%80%9307-f59e0b?style=for-the-badge" alt="Stages 00 to 07">
+  <img src="https://img.shields.io/badge/Codex-supported-111827?style=for-the-badge" alt="Codex supported">
+  <img src="https://img.shields.io/badge/Claude%20Code-supported-111827?style=for-the-badge" alt="Claude Code supported">
+</p>
+
+<p align="center"><a href="#pt-br">🇧🇷 PT-BR</a> · <a href="#english">🇺🇸 English</a></p>
+
+## PT-BR
+
+Versão 1.1.0 · Licença MIT
+
+Um framework baseado em evidências e organizado em etapas para o Codex e o Claude Code revisarem e fortalecerem aplicações SaaS existentes nas áreas de segurança, multi-tenancy, integridade de banco de dados, saúde do código, performance, UX, acessibilidade e prontidão para produção.
+
+Este repositório contém nove Skills composáveis. A `saas-hardening-orchestrator` é o ponto de entrada controlado para um programa completo; os oito auditores também podem ser invocados individualmente. As mesmas Skills e referências são compartilhadas entre Codex e Claude Code, mantendo separados os metadados e subagentes específicos de cada plataforma.
+
+### O que é — e o que não é
+
+Este é um framework de fluxo de trabalho, não um scanner de vulnerabilidades nem uma garantia de que uma aplicação é segura. Ele orienta o agente a inspecionar o código real, preservar evidências, fazer mudanças proporcionais quando autorizadas, executar verificações relevantes e registrar o que continua sem verificação.
+
+O framework é agnóstico à stack e se adapta à linguagem, ao framework, ao banco de dados, ao provedor de hospedagem e ao modelo de deploy da aplicação.
+
+### Skills
+
+| Etapa | Skill | Responsabilidade |
+|---:|---|---|
+| 00 | `saas-baseline` | Mapear arquitetura, fluxos, dados, tenancy, controles e verificações atuais antes de alterar o código. |
+| 01 | `appsec-auditor` | Revisar autenticação, autorização, entradas, ameaças web, secrets, dependências e controles contra abuso. |
+| 02 | `tenant-isolation-auditor` | Verificar propriedade de tenant/recurso, autorização no servidor, RLS, caminhos privilegiados e acesso entre tenants. |
+| 03 | `database-integrity-auditor` | Revisar schema, constraints, migrations, queries, transações, concorrência e segurança dos dados. |
+| 04 | `code-health-auditor` | Remover código morto comprovado, reduzir complexidade, melhorar manutenção e fortalecer testes relevantes. |
+| 05 | `performance-auditor` | Medir e melhorar performance de backend e frontend sem comprometer correção ou isolamento. |
+| 06 | `ux-accessibility-auditor` | Revisar jornadas críticas, feedback, recuperação de erros, responsividade e acessibilidade orientada a WCAG. |
+| 07 | `production-readiness-auditor` | Revisar configuração, observabilidade, releases, resiliência, backups, recuperação e operação. |
+| — | `saas-hardening-orchestrator` | Controlar a sequência 00–07, gates, evidências, status, checkpoints, commits e retomada. |
+
+### Instalação
+
+#### Codex
+
+```text
+$skill-installer
+
+Install all Skills from tiberiolemes/saas-hardening-skills under the skills/ directory, including saas-hardening-orchestrator.
+```
+
+Para instalar em um projeto:
+
+```bash
+git clone https://github.com/tiberiolemes/saas-hardening-skills.git
+mkdir -p /caminho/para/sua-aplicacao/.agents/skills
+cp -R saas-hardening-skills/skills/* /caminho/para/sua-aplicacao/.agents/skills/
+```
+
+#### Claude Code
+
+```bash
+git clone https://github.com/tiberiolemes/saas-hardening-skills.git
+claude --plugin-dir /caminho/para/saas-hardening-skills
+```
+
+Invoque o programa completo com `/saas-hardening-skills:saas-hardening-orchestrator`. Os subagentes ficam disponíveis pela interface `@` do Claude Code. Consulte [docs/claude-code.md](docs/claude-code.md) para detalhes.
+
+### Uso e metodologia
+
+Depois do baseline somente leitura, os stages 01–07 devem classificar findings, implementar correções seguras e autorizadas, testar cada mudança, executar caminhos adversariais quando aplicável e registrar evidências antes de marcar um finding como `RESOLVED`.
+
+```text
+CHECKPOINT → AUDIT → PLAN → FIX → TEST → ADVERSARIAL TEST → VERIFY → REPORT → GATE → COMMIT
+```
+
+O Stage 00 é somente descoberta. Findings que não puderem ser corrigidos com segurança ou clareza permanecem como `ACCEPTED`, `BLOCKED` ou `NOT_VERIFIED`, com o motivo e a próxima ação documentados. A etapa seguinte não começa enquanto a atual estiver `BLOCKED`.
+
+O framework mantém:
+
+```text
+docs/audit/00-baseline.md
+docs/audit/01-appsec.md
+docs/audit/02-tenant-isolation.md
+docs/audit/03-database.md
+docs/audit/04-code-health.md
+docs/audit/05-performance.md
+docs/audit/06-ux-accessibility.md
+docs/audit/07-production-readiness.md
+docs/audit/AUDIT-STATUS.md
+```
+
+### Quality gates, Git e validação
+
+Os gates exigem evidências, testes relevantes, caminhos negativos quando aplicável, diff revisado sem secrets ou mudanças não relacionadas, relatório e `AUDIT-STATUS.md` atualizados e commit lógico quando autorizado. Preserve o trabalho existente e nunca use `git reset --hard`, `git clean -fd`, force push ou operações destrutivas não aprovadas.
+
+```bash
+python3 scripts/validate_skills.py
+```
+
+Leia [CONTRIBUTING.md](CONTRIBUTING.md) antes de abrir um pull request. O framework é distribuído sob a [Licença MIT](LICENSE).
+
+## English
+
 Version 1.1.0 · MIT licensed
 
 An evidence-based, staged framework of Skills for Codex and Claude Code to review and harden existing SaaS applications across security, multi-tenancy, database integrity, code health, performance, UX, accessibility, and production readiness.
