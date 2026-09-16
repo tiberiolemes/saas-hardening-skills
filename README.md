@@ -1,10 +1,10 @@
 # SaaS Hardening Skills
 
-Version 1.0.0 · MIT licensed
+Version 1.1.0 · MIT licensed
 
-An evidence-based, staged framework of Codex Skills for reviewing and hardening existing SaaS applications across security, multi-tenancy, database integrity, code health, performance, UX, accessibility, and production readiness.
+An evidence-based, staged framework of Skills for Codex and Claude Code to review and harden existing SaaS applications across security, multi-tenancy, database integrity, code health, performance, UX, accessibility, and production readiness.
 
-This repository contains nine composable Skills. The `saas-hardening-orchestrator` is the controlled entry point for a complete program; the eight auditors can also be invoked independently for a scoped review.
+This repository contains nine composable Skills. The `saas-hardening-orchestrator` is the controlled entry point for a complete program; the eight auditors can also be invoked independently for a scoped review. The same Skills and references are packaged for Codex and Claude Code, with platform-specific metadata and subagents kept separate.
 
 ## What this is — and is not
 
@@ -63,6 +63,18 @@ Run Codex from the application repository. Keep the framework repository separat
 ### Install for personal use
 
 For a user-wide installation, copy or symlink the selected Skill folders into the user Skill directory supported by your Codex installation, commonly `~/.agents/skills`. Prefer symlinks during development so updates can be tested before publishing a release.
+
+### Install for Claude Code
+
+Claude Code uses the same `skills/` layout and `SKILL.md` files, with a Claude plugin manifest and Markdown subagents at the repository root. See [docs/claude-code.md](docs/claude-code.md) for installation and invocation details.
+
+For a quick local test after cloning:
+
+```bash
+claude --plugin-dir /path/to/saas-hardening-skills
+```
+
+Invoke the complete program with `/saas-hardening-skills:saas-hardening-orchestrator`. Specialist subagents are available through Claude Code's `@` mention interface.
 
 ## Usage
 
@@ -124,6 +136,8 @@ The program is audit-and-remediation, not report-only. Stage 00 is read-only dis
 The next stage cannot begin when the current stage is `BLOCKED`. Findings use `P0`–`P3` severity, and every claim is marked with evidence, confidence, or `NOT_VERIFIED` when the repository does not prove it.
 
 See [docs/methodology.md](docs/methodology.md), [docs/quality-gates.md](docs/quality-gates.md), and [docs/git-discipline.md](docs/git-discipline.md) for the human-facing operating contract.
+
+Claude Code packaging details are in [docs/claude-code.md](docs/claude-code.md).
 
 ## Quality gates
 

@@ -1,0 +1,11 @@
+{
+  "name": "saas-hardening-skills",
+  "description": "Evidence-based staged SaaS auditing and safe remediation for Claude Code.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Tiberio Lemes"
+  },
+  "homepage": "https://github.com/tiberiolemes/saas-hardening-skills",
+  "repository": "https://github.com/tiberiolemes/saas-hardening-skills",
+  "license": "MIT"
+}

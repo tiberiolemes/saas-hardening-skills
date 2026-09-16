@@ -7,6 +7,8 @@ description: Coordinate an evidence-based SaaS hardening program across stages 0
 
 Use this Skill as the entry point when the user wants a complete review or a controlled continuation of the SaaS hardening program. It coordinates the specialist auditors; it does not replace their domain checks.
 
+When running in Claude Code, delegate isolated specialist stages to the plugin's matching subagents when the parent session chooses to do so. Keep stage order, status, evidence, and gate decisions in the parent session; otherwise invoke the specialist Skills directly.
+
 ## Operating contract
 
 1. Inspect the application repository before changing anything: working tree, branch, recent history, remote, stack, and existing audit artifacts.
